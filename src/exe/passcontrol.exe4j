@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exe4j version="6.0" transformSequenceNumber="2">
+  <directoryPresets config="D:/code/Java/nacola/代码工程" />
+  <application name="passcontrol" distributionSourceDir="D:/code/Java/nacola/代码工程/闸机系统">
+    <languages>
+      <principalLanguage id="en" customLocalizationFile="" />
+    </languages>
+  </application>
+  <executable name="passcontrol" type="2" iconSet="true" iconFile="C:/Users/86187/Pictures/nicola.ico" executableDir="." redirectStderr="true" stderrFile="error.log" stderrMode="overwrite" redirectStdout="false" stdoutFile="output.log" stdoutMode="overwrite" failOnStderrOutput="true" executableMode="1" changeWorkingDirectory="true" workingDirectory="." singleInstance="false" serviceStartType="2" serviceDependencies="" serviceDescription="" jreLocation="" executionLevel="asInvoker" checkConsoleParameter="false" globalSingleInstance="false" singleInstanceActivate="true" dpiAware="java9+" amd64="true">
+    <messageSet />
+    <versionInfo include="false" fileVersion="" fileDescription="" legalCopyright="" internalName="" productName="" companyName="" productVersion="" />
+  </executable>
+  <splashScreen show="false" width="0" height="0" bitmapFile="" textOverlay="false">
+    <text>
+      <statusLine x="20" y="20" text="" fontSize="8" fontColor="0,0,0" bold="false" />
+      <versionLine x="20" y="40" text="version %VERSION%" fontSize="8" fontColor="0,0,0" bold="false" />
+    </text>
+  </splashScreen>
+  <java mainClass="com.ffait.pass.MainFrame" mainMode="1" vmParameters="" arguments="" allowVMPassthroughParameters="true" preferredVM="server" bundleRuntime="true" minVersion="1.7" maxVersion="" allowBetaVM="false" jdkOnly="false">
+    <searchSequence>
+      <directory location="../jre1.8.0_74" />
+    </searchSequence>
+    <classPath>
+      <archive location="D:/code/Java/nacola/代码工程/闸机系统/passcontrol.jar" failOnError="false" />
+    </classPath>
+    <modulePath />
+    <nativeLibraryDirectories />
+    <vmOptions />
+  </java>
+  <includedFiles />
+  <unextractableFiles />
+</exe4j>
