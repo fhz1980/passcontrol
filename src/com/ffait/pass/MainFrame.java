@@ -196,6 +196,7 @@ public class MainFrame {
 				BufferedImage bi = fs.mat2BI(frame);
 				long currenttime = System.currentTimeMillis();
 				long timeGap=Long.parseLong(ParameterOperate.extract("timeGap"));
+				long pauseTime=Long.parseLong(ParameterOperate.extract("pauseTime"));
 				if (currenttime - pretime > timeGap && state) {
 					new Thread(new Runnable() {
 						@Override
@@ -308,7 +309,7 @@ public class MainFrame {
 										message.setText("您是管理员，开启闸机！");
 										message.setVisible(true);
 										try {
-											Thread.sleep(8000);
+											Thread.sleep(pauseTime);
 											state = true;
 											setVisible(false);
 											clearInfo();
@@ -326,7 +327,7 @@ public class MainFrame {
 											message.setText("你没有达到考核要求，请继续学习！");
 											message.setVisible(true);
 											try {
-												Thread.sleep(8000);
+												Thread.sleep(pauseTime);
 												state = true;
 												setVisible(false);
 												clearInfo();
@@ -338,7 +339,7 @@ public class MainFrame {
 											message.setText("达到考核要求，闸机开启！");
 											message.setVisible(true);
 											try {
-												Thread.sleep(8000);
+												Thread.sleep(pauseTime);
 												state = true;
 												setVisible(false);
 												clearInfo();
