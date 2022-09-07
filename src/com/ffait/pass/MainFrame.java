@@ -23,16 +23,11 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import com.ffait.util.*;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.videoio.VideoCapture;
 
-import com.ffait.util.ByteUtils;
-import com.ffait.util.DownloadFromUrl;
-import com.ffait.util.JsonToObject;
-
-import com.ffait.util.ParameterOperate;
-import com.ffait.util.ShowUtils;
 import com.google.gson.Gson;
 
 import gnu.io.PortInUseException;
@@ -61,6 +56,7 @@ public class MainFrame {
 	static JLabel lblPhoto;
 	static JLabel message;
 	static JLabel lblbackPhoto;
+	static BufferedImage showImg= null;
 	static int flag = 0;
 	// 当前工作工作状态 true :人脸识别 false:报告分析展示
 	static boolean state = true;
@@ -193,6 +189,7 @@ public class MainFrame {
 			Mat frame = new Mat();
 			while (flag == 0) {
 				camera.read(frame);
+				BufferedImage bufferedImage = ImageBlur.gausssianBlur(frame);
 				BufferedImage bi = fs.mat2BI(frame);
 				long currenttime = System.currentTimeMillis();
 				long timeGap=Long.parseLong(ParameterOperate.extract("timeGap"));
@@ -366,7 +363,11 @@ public class MainFrame {
 					}).start();
 					pretime = currenttime;
 				}
-				lblCrame.setIcon(new ImageIcon(bi));
+//				lblCrame.setIcon(new ImageIcon(bi));
+
+				showImg = ImageUtils.deepCopy(bi);
+				ImageBlur.drawFace(bufferedImage,showImg.getSubimage(350,190,270,340));
+				lblCrame.setIcon(new ImageIcon(bufferedImage));
 			}
 		}
 	}
